@@ -1,6 +1,7 @@
+import 'dart:async';
+
 import 'package:alien/view/home_page/home_controller/home_controllers.dart';
 import 'package:alien/view/home_page/videos/video_view.dart';
-import 'package:alien/view/partner_profile/partner_profile_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,15 +14,235 @@ import 'package:video_player/video_player.dart';
 class Trendings extends StatelessWidget {
   Trendings({Key? key}) : super(key: key);
   HomeController homeController = Get.put(HomeController());
+  void _showDialog() {
+    Future.delayed(Duration(seconds: 1), () {
+      Timer(Duration(seconds: 5), () {
+        Get.back();
+
+        print(" This line is execute after 2 seconds");
+      });
+      // Container(
+      //   height: 30.h,
+      //   width: 60.w,
+      //   color: Colors.blue,
+      // );
+      Get.defaultDialog(
+          title: "",
+
+          //middleText:
+          content: SizedBox(
+            width: 100.w,
+            height: 40.5.h,
+            child: Stack(
+              clipBehavior: Clip.none,
+              //mainAxisAlignment: MainAxisAlignment.end,
+              //crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Positioned(
+                  left: -12.w,
+                  top: 6.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                    elevation: 2,
+                    child: Container(
+                      height: 4.h,
+                      width: 9.w,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Center(
+                          child: Icon(
+                        Icons.push_pin,
+                        size: 17,
+                      )),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: -12.w,
+                  bottom: -4.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    //shape: BoxShape.circle,
+                    elevation: 0.5,
+                    child: Container(
+                      height: 2.h,
+                      width: 11.w,
+                      decoration: BoxDecoration(
+                        //shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.remove_red_eye_outlined,
+                            size: 17,
+                          ),
+                          Text(
+                            '1.70k',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 7.sp,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 0.w,
+                  bottom: -4.h,
+                  child: Container(
+                    height: 2.h,
+                    //width: 11.w,
+                    decoration: BoxDecoration(
+                      //shape: BoxShape.circle,
+                      color: Colors.white10,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.stop_circle_outlined,
+                          size: 14,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Similar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 7.sp,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: -11.w,
+                  top: 6.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                    elevation: 2,
+                    child: Container(
+                      height: 5.h,
+                      width: 9.w,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Center(
+                          child: InkWell(
+                        onTap: () {
+                          // _showDialog();
+                        },
+                        child: Icon(
+                          Icons.volume_down,
+                          size: 17,
+                        ),
+                      )),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 9.h,
+                  //right:0,
+                  //left: 0,
+                  right: -11.w,
+                  child: Column(
+                    children: [
+                      12.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.star_border,
+                        color: Colors.white,
+                        size: 24,
+                      )),
+                      Text(
+                        '110+',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.mic_none_rounded,
+                        color: Colors.white,
+                        size: 24,
+                      )),
+                      Text(
+                        '200+',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        FontAwesomeIcons.share,
+                        color: Colors.white,
+                        size: 17,
+                      )),
+                      Text(
+                        '20',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.card_giftcard_outlined,
+                        color: Colors.white,
+                        size: 22,
+                      )),
+                      Text(
+                        '12',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      0.7.h.heightBox,
+                    ],
+                  ).pSymmetric(h: 0.0.w),
+                ),
+              ],
+            ),
+          ),
+          backgroundColor: Colors.transparent,
+          titleStyle: TextStyle(color: Colors.white),
+          middleTextStyle: TextStyle(color: Colors.white),
+          radius: 0);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    bool showFab = MediaQuery.of(context).viewInsets.bottom != 0;
     return Column(
       children: [
         SizedBox(
           height: 100.h,
           child: ListView.builder(
-              //physics: NeverScrollableScrollPhysics(),
+              physics: NeverScrollableScrollPhysics(),
               //scrollDirection: Axis.horizontal,
               itemCount: 1,
               itemBuilder: (BuildContext context, int index) {
@@ -97,13 +318,19 @@ class Trendings extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               0.h.heightBox,
-                              Icon(
-                                Icons.add,
-                                color: Colors.blue,
-                                size: 25,
-                              ).onTap(() {
-                                Get.to(PartnerProfile1());
-                              }),
+                              InkWell(
+                                onTap: () {},
+                                child: Visibility(
+                                   visible: !showFab,
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.blue,
+                                    size: 25,
+                                  ).onTap(() {
+                                    //Get.to(PartnerProfile1());
+                                  }),
+                                ),
+                              ),
                               Icon(
                                 Icons.more_vert_rounded,
                                 color: Colors.black,
@@ -123,36 +350,41 @@ class Trendings extends StatelessWidget {
                       },
                       child: Stack(
                         children: [
-                          Container(
-                              height: 40.5.h,
-                              width: 100.w,
-                              color: Colors.grey,
-                              child: Obx(() {
-                                if (homeController.isLoader.value == false &&
-                                    homeController.controller != null &&
-                                    homeController
-                                        .controller!.value.isInitialized) {
-                                  return VideoPlayer(
-                                      homeController.controller!);
-                                } else {
-                                  return Center(
-                                    child: CircularProgressIndicator(),
-                                  );
-                                }
-                              })
+                          InkWell(
+                            onTap: () {
+                              _showDialog();
+                            },
+                            child: Container(
+                                height: 40.5.h,
+                                width: 100.w,
+                                color: Colors.grey,
+                                child: Obx(() {
+                                  if (homeController.isLoader.value == false &&
+                                      homeController.controller != null &&
+                                      homeController
+                                          .controller!.value.isInitialized) {
+                                    return VideoPlayer(
+                                        homeController.controller!);
+                                  } else {
+                                    return Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
+                                })
 
-                              //     ?  VideoPlayer(_videoLectureController.controller!)
-                              //     : Center(
-                              //         child: CircularProgressIndicator(),
-                              //       ),
-                              ).onDoubleTap(() {
-                            Get.to(() => VideoPlayers());
-                          }),
+                                //     ?  VideoPlayer(_videoLectureController.controller!)
+                                //     : Center(
+                                //         child: CircularProgressIndicator(),
+                                //       ),
+                                ).onDoubleTap(() {
+                              Get.to(() => VideoPlayers());
+                            }),
+                          ),
                           homeController.controller!.value.isPlaying
                               ? Container()
                               : Icon(
                                   Icons.play_arrow,
-                                  color: Colors.transparent,
+                                  color: Colors.white,
                                   size: 3.h,
                                 ),
 
@@ -166,197 +398,202 @@ class Trendings extends StatelessWidget {
                                     homeController.controller!,
                                     allowScrubbing: true),
                               )),
-                          Positioned(
-                            left: 3,
-                            top: 2,
-                            child: PhysicalModel(
-                              color: Colors.transparent,
-                              shape: BoxShape.circle,
-                              elevation: 2,
-                              child: Container(
-                                height: 5.h,
-                                width: 9.w,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white10,
-                                ),
-                                child: Center(
-                                    child: Icon(
-                                  Icons.push_pin,
-                                  size: 17,
-                                )),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            right: 2,
-                            top: 2,
-                            child: PhysicalModel(
-                              color: Colors.transparent,
-                              shape: BoxShape.circle,
-                              elevation: 2,
-                              child: Container(
-                                height: 5.h,
-                                width: 9.w,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white10,
-                                ),
-                                child: Center(
-                                    child: Icon(
-                                  Icons.volume_down,
-                                  size: 17,
-                                )),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 3.h,
-                            //left: 0,
-                            right: 1,
-                            child: Column(
-                              children: [
-                                12.h.heightBox,
-                                Center(
-                                    child: Icon(
-                                  Icons.star_border,
-                                  color: Colors.white,
-                                  size: 24,
-                                )),
-                                Text(
-                                  '110+',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 7.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                1.3.h.heightBox,
-                                Center(
-                                    child: Icon(
-                                  Icons.mic_none_rounded,
-                                  color: Colors.white,
-                                  size: 24,
-                                )),
-                                Text(
-                                  '200+',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 7.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                1.3.h.heightBox,
-                                Center(
-                                    child: Icon(
-                                  FontAwesomeIcons.share,
-                                  color: Colors.white,
-                                  size: 17,
-                                )),
-                                Text(
-                                  '20',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 7.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                1.3.h.heightBox,
-                                Center(
-                                    child: Icon(
-                                  Icons.card_giftcard_outlined,
-                                  color: Colors.white,
-                                  size: 22,
-                                )),
-                                Text(
-                                  '12',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 7.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                0.7.h.heightBox,
-                                Text(
-                                  '01:30',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 7.sp,
-                                  ),
-                                ),
-                              ],
-                            ).pSymmetric(h: 0.5.w),
-                          ),
+                          // Positioned(
+                          //   left: 3,
+                          //   top: 2,
+                          //   child: PhysicalModel(
+                          //     color: Colors.transparent,
+                          //     shape: BoxShape.circle,
+                          //     elevation: 2,
+                          //     child: Container(
+                          //       height: 5.h,
+                          //       width: 9.w,
+                          //       decoration: BoxDecoration(
+                          //         shape: BoxShape.circle,
+                          //         color: Colors.white10,
+                          //       ),
+                          //       child: Center(
+                          //           child: Icon(
+                          //         Icons.push_pin,
+                          //         size: 17,
+                          //       )),
+                          //     ),
+                          //   ),
+                          // ),
+                          // Positioned(
+                          //   right: 2,
+                          //   top: 2,
+                          //   child: PhysicalModel(
+                          //     color: Colors.transparent,
+                          //     shape: BoxShape.circle,
+                          //     elevation: 2,
+                          //     child: Container(
+                          //       height: 5.h,
+                          //       width: 9.w,
+                          //       decoration: BoxDecoration(
+                          //         shape: BoxShape.circle,
+                          //         color: Colors.white10,
+                          //       ),
+                          //       child: Center(
+                          //           child: InkWell(
+                          //         onTap: () {
+                          //           _showDialog();
+                          //         },
+                          //         child: Icon(
+                          //           Icons.volume_down,
+                          //           size: 17,
+                          //         ),
+                          //       )),
+                          //     ),
+                          //   ),
+                          // ),
+                          // Positioned(
+                          //   top: 3.h,
+                          //   //left: 0,
+                          //   right: 1,
+                          //   child: Column(
+                          //     children: [
+                          //       12.h.heightBox,
+                          //       Center(
+                          //           child: Icon(
+                          //         Icons.star_border,
+                          //         color: Colors.white,
+                          //         size: 24,
+                          //       )),
+                          //       Text(
+                          //         '110+',
+                          //         style: TextStyle(
+                          //           color: Colors.white,
+                          //           fontSize: 7.sp,
+                          //           fontWeight: FontWeight.bold,
+                          //         ),
+                          //       ),
+                          //       1.3.h.heightBox,
+                          //       Center(
+                          //           child: Icon(
+                          //         Icons.mic_none_rounded,
+                          //         color: Colors.white,
+                          //         size: 24,
+                          //       )),
+                          //       Text(
+                          //         '200+',
+                          //         style: TextStyle(
+                          //           color: Colors.white,
+                          //           fontSize: 7.sp,
+                          //           fontWeight: FontWeight.bold,
+                          //         ),
+                          //       ),
+                          //       1.3.h.heightBox,
+                          //       Center(
+                          //           child: Icon(
+                          //         FontAwesomeIcons.share,
+                          //         color: Colors.white,
+                          //         size: 17,
+                          //       )),
+                          //       Text(
+                          //         '20',
+                          //         style: TextStyle(
+                          //           color: Colors.white,
+                          //           fontSize: 7.sp,
+                          //           fontWeight: FontWeight.bold,
+                          //         ),
+                          //       ),
+                          //       1.3.h.heightBox,
+                          //       Center(
+                          //           child: Icon(
+                          //         Icons.card_giftcard_outlined,
+                          //         color: Colors.white,
+                          //         size: 22,
+                          //       )),
+                          //       Text(
+                          //         '12',
+                          //         style: TextStyle(
+                          //           color: Colors.white,
+                          //           fontSize: 7.sp,
+                          //           fontWeight: FontWeight.bold,
+                          //         ),
+                          //       ),
+                          //       0.7.h.heightBox,
+                          //       Text(
+                          //         '01:30',
+                          //         style: TextStyle(
+                          //           color: Colors.white,
+                          //           fontWeight: FontWeight.bold,
+                          //           fontSize: 7.sp,
+                          //         ),
+                          //       ),
+                          //     ],
+                          //   ).pSymmetric(h: 0.5.w),
+                          // ),
 
-                          Positioned(
-                            left: 0,
-                            bottom: 1.h,
-                            child: PhysicalModel(
-                              color: Colors.transparent,
-                              //shape: BoxShape.circle,
-                              elevation: 0.5,
-                              child: Container(
-                                height: 2.h,
-                                width: 11.w,
-                                decoration: BoxDecoration(
-                                  //shape: BoxShape.circle,
-                                  color: Colors.white10,
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.remove_red_eye_outlined,
-                                      size: 17,
-                                    ),
-                                    Text(
-                                      '1.70k',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 7.sp,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            left: 13.w,
-                            bottom: 1.h,
-                            child: Container(
-                              height: 2.h,
-                              //width: 11.w,
-                              decoration: BoxDecoration(
-                                //shape: BoxShape.circle,
-                                color: Colors.white10,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.stop_circle_outlined,
-                                    size: 14,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    'Similar',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 7.sp,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
+                          // Positioned(
+                          //   left: 0,
+                          //   bottom: 1.h,
+                          //   child: PhysicalModel(
+                          //     color: Colors.transparent,
+                          //     //shape: BoxShape.circle,
+                          //     elevation: 0.5,
+                          //     child: Container(
+                          //       height: 2.h,
+                          //       width: 11.w,
+                          //       decoration: BoxDecoration(
+                          //         //shape: BoxShape.circle,
+                          //         color: Colors.white10,
+                          //       ),
+                          //       child: Row(
+                          //         mainAxisAlignment:
+                          //             MainAxisAlignment.spaceBetween,
+                          //         crossAxisAlignment: CrossAxisAlignment.center,
+                          //         children: [
+                          //           Icon(
+                          //             Icons.remove_red_eye_outlined,
+                          //             size: 17,
+                          //           ),
+                          //           Text(
+                          //             '1.70k',
+                          //             style: TextStyle(
+                          //               color: Colors.white,
+                          //               fontWeight: FontWeight.bold,
+                          //               fontSize: 7.sp,
+                          //             ),
+                          //           )
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                          // Positioned(
+                          //   left: 13.w,
+                          //   bottom: 1.h,
+                          //   child: Container(
+                          //     height: 2.h,
+                          //     //width: 11.w,
+                          //     decoration: BoxDecoration(
+                          //       //shape: BoxShape.circle,
+                          //       color: Colors.white10,
+                          //     ),
+                          //     child: Row(
+                          //       mainAxisAlignment:
+                          //           MainAxisAlignment.spaceBetween,
+                          //       crossAxisAlignment: CrossAxisAlignment.center,
+                          //       children: [
+                          //         Icon(
+                          //           Icons.stop_circle_outlined,
+                          //           size: 14,
+                          //           color: Colors.white,
+                          //         ),
+                          //         Text(
+                          //           'Similar',
+                          //           style: TextStyle(
+                          //             color: Colors.white,
+                          //             fontWeight: FontWeight.bold,
+                          //             fontSize: 7.sp,
+                          //           ),
+                          //         )
+                          //       ],
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:alien/view/home_page/home_pagee.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,7 @@ import 'nav_bar_controller.dart';
 class NavBar extends StatelessWidget {
   var size, height, width;
   NavBar({Key? key}) : super(key: key);
+  final List<int> _items = List<int>.generate(50, (int index) => index);
 
   final List<IconData> icons = [
     Icons.sentiment_very_dissatisfied,
@@ -30,6 +33,225 @@ class NavBar extends StatelessWidget {
     'Ma',
     'Jobs',
   ];
+  void _showDialog() {
+    Future.delayed(Duration(seconds: 1), () {
+      Timer(Duration(seconds: 5), () {
+        Get.back();
+
+        print(" This line is execute after 2 seconds");
+      });
+      // Container(
+      //   height: 30.h,
+      //   width: 60.w,
+      //   color: Colors.blue,
+      // );
+      Get.defaultDialog(
+          title: "",
+
+          //middleText:
+          content: SizedBox(
+            width: 100.w,
+            height: 40.5.h,
+            child: Stack(
+              clipBehavior: Clip.none,
+              //mainAxisAlignment: MainAxisAlignment.end,
+              //crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Positioned(
+                  left: -12.w,
+                  top: 6.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                    elevation: 2,
+                    child: Container(
+                      height: 4.h,
+                      width: 9.w,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Center(
+                          child: Icon(
+                        Icons.push_pin,
+                        size: 17,
+                      )),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: -12.w,
+                  bottom: -4.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    //shape: BoxShape.circle,
+                    elevation: 0.5,
+                    child: Container(
+                      height: 2.h,
+                      width: 11.w,
+                      decoration: BoxDecoration(
+                        //shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.remove_red_eye_outlined,
+                            size: 17,
+                          ),
+                          Text(
+                            '1.70k',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 7.sp,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 0.w,
+                  bottom: -4.h,
+                  child: Container(
+                    height: 2.h,
+                    //width: 11.w,
+                    decoration: BoxDecoration(
+                      //shape: BoxShape.circle,
+                      color: Colors.white10,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.stop_circle_outlined,
+                          size: 14,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Similar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 7.sp,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: -11.w,
+                  top: 6.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                    elevation: 2,
+                    child: Container(
+                      height: 5.h,
+                      width: 9.w,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Center(
+                          child: InkWell(
+                        onTap: () {
+                          // _showDialog();
+                        },
+                        child: Icon(
+                          Icons.volume_down,
+                          size: 17,
+                        ),
+                      )),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 9.h,
+                  //right:0,
+                  //left: 0,
+                  right: -11.w,
+                  child: Column(
+                    children: [
+                      12.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.star_border,
+                        color: Colors.white,
+                        size: 24,
+                      )),
+                      Text(
+                        '110+',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.mic_none_rounded,
+                        color: Colors.white,
+                        size: 24,
+                      )),
+                      Text(
+                        '200+',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        FontAwesomeIcons.share,
+                        color: Colors.white,
+                        size: 17,
+                      )),
+                      Text(
+                        '20',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.card_giftcard_outlined,
+                        color: Colors.white,
+                        size: 22,
+                      )),
+                      Text(
+                        '12',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      0.7.h.heightBox,
+                    ],
+                  ).pSymmetric(h: 0.0.w),
+                ),
+              ],
+            ),
+          ),
+          backgroundColor: Colors.transparent,
+          titleStyle: TextStyle(color: Colors.white),
+          middleTextStyle: TextStyle(color: Colors.white),
+          radius: 0);
+    });
+  }
 
   BottomController _bottomController =
       Get.put(BottomController(), permanent: true);
@@ -42,7 +264,7 @@ class NavBar extends StatelessWidget {
     print(width);
     return Scaffold(
       bottomNavigationBar: SizedBox(
-        height: 8.h,
+        height: 7.h,
         child: Container(
           //height: 7.h,
           decoration: BoxDecoration(
@@ -50,10 +272,101 @@ class NavBar extends StatelessWidget {
             color: Colors.white,
           ),
           child: PageView.builder(
-              itemCount: 2,
+              itemCount: _bottomController.myFav.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                return Obx(
+                return
+                    //   Obx(
+                    //   () => ReorderableListView(
+                    //     scrollDirection: Axis.horizontal,
+                    //     onReorder: (oldIndex, newIndex) {
+                    //       _bottomController.reorder(oldIndex, newIndex);
+                    //       if (oldIndex < newIndex) {
+                    //         newIndex -= 1;
+                    //       }
+                    //       final int item = _items.removeAt(oldIndex);
+                    //       _items.insert(newIndex, item);
+                    //     },
+                    //     children: _bottomController.myFav
+                    //         .map(
+                    //           (e) => Container(
+                    //             width: 15.w,
+                    //             height: 3.h,
+                    //             margin: EdgeInsets.only(left: 8, right: 8, top: 5),
+                    //             padding: EdgeInsets.all(4),
+                    //             key: ValueKey(e),
+                    //             decoration: BoxDecoration(
+                    //                 borderRadius: BorderRadius.all(
+                    //                   Radius.circular(8),
+                    //                 ),
+                    //                 color: Colors.transparent),
+                    //             child: InkWell(
+                    //               onTap: () {
+                    //                 print('call');
+                    //
+                    //                 // _bottomController.changeTabIndex(0);
+                    //                 if (index == 0) {
+                    //                   //Get.to(() => ManPage());
+                    //                   _bottomController.changeTabIndex(0);
+                    //                   //Get.to(() => WaterTracking());
+                    //                 } else if (index == 1) {
+                    //                   _bottomController.changeTabIndex(1);
+                    //                 } else if (index == 2) {
+                    //                   _bottomController.changeTabIndex(2);
+                    //                   //Get.to(() => HotDeals());
+                    //                   //Get.to(() => WalkTracking());
+                    //                 } else if (index == 3) {
+                    //                   ///Todo this is showing dark and white mode
+                    //                   ///
+                    //                   _bottomController.changeTabIndex.hashCode;
+                    //
+                    //                   //Get.to(() => CarouselDemo());
+                    //                 } else if (index == 4) {
+                    //                   _bottomController.changeTabIndex(4);
+                    //                 }
+                    //               },
+                    //               child: Column(
+                    //                 mainAxisAlignment: MainAxisAlignment.center,
+                    //                 crossAxisAlignment: CrossAxisAlignment.center,
+                    //                 children: [
+                    //                   Icon(
+                    //                     icons.first,
+                    //                     color: _bottomController.tabIndex.value == 0
+                    //                         ? Colors.black
+                    //                         : Colors.grey.shade600,
+                    //                     size: 22,
+                    //                   ),
+                    //                   SizedBox(
+                    //                     height: 2.h,
+                    //                     width: 10.w,
+                    //                     child: Center(
+                    //                       child: Text(e,
+                    //                           style: TextStyle(
+                    //                               color: _bottomController
+                    //                                           .tabIndex.value ==
+                    //                                       0
+                    //                                   ? Colors.black
+                    //                                   : Colors.grey.shade600,
+                    //                               fontSize: 7.sp,
+                    //                               fontWeight: FontWeight.bold)
+                    //                           //style: TextStyle(color:_bottomController.tabindex.value==0?Colors.orange:Color(0xFF110d39),fontSize: 13)
+                    //                           // TextStyles(12.sp, FontWeight.w400, TextDecoration.none,
+                    //                           //     textcolor
+                    //                           // ),
+                    //                           ),
+                    //                     ),
+                    //                   )
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //           ),
+                    //         )
+                    //         .toList(),
+                    //   ),
+                    // );
+
+                    ///todo..............
+                    Obx(
                   () => Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,31 +376,75 @@ class NavBar extends StatelessWidget {
                             print('call');
                             _bottomController.changeTabIndex(0);
                           },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Icon(
-                                FontAwesomeIcons.redditAlien,
-                                color: _bottomController.tabindex.value == 0
-                                    ? Colors.black
-                                    : Colors.grey.shade600,
-                                size: 22,
-                              ),
-                              Text("Alien",
-                                  style: TextStyle(
+                          child: SizedBox(
+                            height: 8.h,
+                            width: 10.w,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                //2.h.heightBox,
+                                Container(
+                                  height: 0.3.h,
+                                  width: 11.w,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    color: _bottomController.tabIndex.value == 0
+                                        ? Colors.blue
+                                        : Colors.transparent,
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      FontAwesomeIcons.redditAlien,
                                       color:
-                                          _bottomController.tabindex.value == 0
+                                          _bottomController.tabIndex.value == 0
                                               ? Colors.black
                                               : Colors.grey.shade600,
-                                      fontSize: 7.sp,
-                                      fontWeight: FontWeight.bold)
-                                  //style: TextStyle(color:_bottomController.tabindex.value==0?Colors.orange:Color(0xFF110d39),fontSize: 13)
-                                  // TextStyles(12.sp, FontWeight.w400, TextDecoration.none,
-                                  //     textcolor
-                                  // ),
-                                  )
-                            ],
+                                      size: 22,
+                                    ),
+                                    0.1.w.widthBox,
+                                    PopupMenuButton(
+                                      initialValue: 2,
+                                      child: Center(
+                                          child: Icon(
+                                        Icons.arrow_drop_up_outlined,
+                                        size: 12,
+                                        color:
+                                            _bottomController.tabIndex.value ==
+                                                    0
+                                                ? Colors.black
+                                                : Colors.transparent,
+                                      )),
+                                      itemBuilder: (context) {
+                                        return List.generate(5, (index) {
+                                          return PopupMenuItem(
+                                            value: index,
+                                            child: Text('button no $index'),
+                                          );
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                Text("Alien       ",
+                                    style: TextStyle(
+                                        color:
+                                            _bottomController.tabIndex.value ==
+                                                    0
+                                                ? Colors.black
+                                                : Colors.grey.shade600,
+                                        fontSize: 7.sp,
+                                        fontWeight: FontWeight.bold)
+                                    //style: TextStyle(color:_bottomController.tabindex.value==0?Colors.orange:Color(0xFF110d39),fontSize: 13)
+                                    // TextStyles(12.sp, FontWeight.w400, TextDecoration.none,
+                                    //     textcolor
+                                    // ),
+                                    )
+                              ],
+                            ),
                           ),
                         ),
                         InkWell(
@@ -96,20 +453,56 @@ class NavBar extends StatelessWidget {
                             _bottomController.changeTabIndex(1);
                           },
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.compare,
-                                color: _bottomController.tabindex.value == 1
-                                    ? Colors.black
-                                    : Colors.grey.shade600,
-                                size: 20,
+                              Container(
+                                height: 0.3.h,
+                                width: 11.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: _bottomController.tabIndex.value == 1
+                                      ? Colors.blue
+                                      : Colors.transparent,
+                                ),
                               ),
-                              Text("Explore",
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    FontAwesomeIcons.explosion,
+                                    color: _bottomController.tabIndex.value == 1
+                                        ? Colors.black
+                                        : Colors.grey.shade600,
+                                    size: 22,
+                                  ),
+                                  1.w.widthBox,
+                                  PopupMenuButton(
+                                    initialValue: 2,
+                                    child: Center(
+                                        child: Icon(
+                                      Icons.arrow_drop_up_outlined,
+                                      size: 12,
+                                      color:
+                                          _bottomController.tabIndex.value == 1
+                                              ? Colors.black
+                                              : Colors.transparent,
+                                    )),
+                                    itemBuilder: (context) {
+                                      return List.generate(5, (index) {
+                                        return PopupMenuItem(
+                                          value: index,
+                                          child: Text('button no $index'),
+                                        );
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Text("Explore    ",
                                   style: TextStyle(
                                       color:
-                                          _bottomController.tabindex.value == 1
+                                          _bottomController.tabIndex.value == 1
                                               ? Colors.black
                                               : Colors.grey.shade600,
                                       fontSize: 7.sp,
@@ -131,9 +524,19 @@ class NavBar extends StatelessWidget {
                             _bottomController.changeTabIndex(2);
                           },
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+                              Container(
+                                height: 0.3.h,
+                                width: 11.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: _bottomController.tabIndex.value == 2
+                                      ? Colors.blue
+                                      : Colors.transparent,
+                                ),
+                              ),
                               // Container(
                               //   height: 3.8.h,
                               //   width: 6.w,
@@ -146,20 +549,45 @@ class NavBar extends StatelessWidget {
                               //   ),
                               // ),
 
-                              Icon(
-                                Icons.favorite,
-                                color: _bottomController.tabindex.value == 2
-                                    ? Colors.black
-                                    : Colors.grey.shade600,
-                                size: 20,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    FontAwesomeIcons.heart,
+                                    color: _bottomController.tabIndex.value == 2
+                                        ? Colors.black
+                                        : Colors.grey.shade600,
+                                    size: 22,
+                                  ),
+                                  PopupMenuButton(
+                                    initialValue: 2,
+                                    child: Center(
+                                        child: Icon(
+                                      Icons.arrow_drop_up_outlined,
+                                      size: 15,
+                                      color:
+                                          _bottomController.tabIndex.value == 2
+                                              ? Colors.black
+                                              : Colors.transparent,
+                                    )),
+                                    itemBuilder: (context) {
+                                      return List.generate(5, (index) {
+                                        return PopupMenuItem(
+                                          value: index,
+                                          child: Text('button no $index'),
+                                        );
+                                      });
+                                    },
+                                  ),
+                                ],
                               ),
-                              Text("Wishlist",
+                              Text("Wishlist    ",
                                   style: TextStyle(
                                       color:
-                                          _bottomController.tabindex.value == 2
+                                          _bottomController.tabIndex.value == 2
                                               ? Colors.black
                                               : Colors.grey.shade600,
-                                      fontSize: 8.sp,
+                                      fontSize: 7.sp,
                                       fontWeight: FontWeight.bold)
                                   //style: TextStyle(color: _bottomController.tabindex.value==3?Colors.orange:Color(0xFF110d39),fontSize: 13)
                                   // TextStyles(12.sp, FontWeight.w400, TextDecoration.none,
@@ -175,9 +603,19 @@ class NavBar extends StatelessWidget {
                             _bottomController.changeTabIndex(3);
                           },
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
+                              Container(
+                                height: 0.3.h,
+                                width: 11.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: _bottomController.tabIndex.value == 3
+                                      ? Colors.blue
+                                      : Colors.transparent,
+                                ),
+                              ),
                               // Container(
                               //   height: 3.8.h,
                               //   width: 6.w,
@@ -189,17 +627,43 @@ class NavBar extends StatelessWidget {
                               //     fit: BoxFit.fill,
                               //   ).p(0),
                               // ),
-                              Icon(
-                                Icons.chat_bubble_outline_outlined,
-                                color: _bottomController.tabindex.value == 3
-                                    ? Colors.black
-                                    : Colors.grey.shade600,
-                                size: 20,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    FontAwesomeIcons.message,
+                                    color: _bottomController.tabIndex.value == 3
+                                        ? Colors.black
+                                        : Colors.grey.shade600,
+                                    size: 22,
+                                  ),
+                                  1.w.widthBox,
+                                  PopupMenuButton(
+                                    initialValue: 2,
+                                    child: Center(
+                                        child: Icon(
+                                      Icons.arrow_drop_up_outlined,
+                                      size: 12,
+                                      color:
+                                          _bottomController.tabIndex.value == 3
+                                              ? Colors.black
+                                              : Colors.transparent,
+                                    )),
+                                    itemBuilder: (context) {
+                                      return List.generate(5, (index) {
+                                        return PopupMenuItem(
+                                          value: index,
+                                          child: Text('button no $index'),
+                                        );
+                                      });
+                                    },
+                                  ),
+                                ],
                               ),
-                              Text("Ma",
+                              Text("Message     ",
                                   style: TextStyle(
                                       color:
-                                          _bottomController.tabindex.value == 3
+                                          _bottomController.tabIndex.value == 3
                                               ? Colors.black
                                               : Colors.grey.shade600,
                                       fontSize: 7.sp,
@@ -215,23 +679,59 @@ class NavBar extends StatelessWidget {
                         InkWell(
                           onTap: () {
                             print('call');
-                            _bottomController.changeTabIndex(1);
+                            _bottomController.changeTabIndex(4);
                           },
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.video_call,
-                                color: _bottomController.tabindex.value == 4
-                                    ? Colors.black
-                                    : Colors.grey.shade600,
-                                size: 20,
+                              Container(
+                                height: 0.3.h,
+                                width: 11.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: _bottomController.tabIndex.value == 4
+                                      ? Colors.blue
+                                      : Colors.transparent,
+                                ),
                               ),
-                              Text("Clip",
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    FontAwesomeIcons.video,
+                                    color: _bottomController.tabIndex.value == 4
+                                        ? Colors.black
+                                        : Colors.grey.shade600,
+                                    size: 22,
+                                  ),
+                                  1.w.widthBox,
+                                  PopupMenuButton(
+                                    initialValue: 2,
+                                    child: Center(
+                                        child: Icon(
+                                      Icons.arrow_drop_up_outlined,
+                                      size: 12,
+                                      color:
+                                          _bottomController.tabIndex.value == 4
+                                              ? Colors.black
+                                              : Colors.transparent,
+                                    )),
+                                    itemBuilder: (context) {
+                                      return List.generate(5, (index) {
+                                        return PopupMenuItem(
+                                          value: index,
+                                          child: Text('button no $index'),
+                                        );
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Text("Clip      ",
                                   style: TextStyle(
                                       color:
-                                          _bottomController.tabindex.value == 44
+                                          _bottomController.tabIndex.value == 4
                                               ? Colors.black
                                               : Colors.grey.shade600,
                                       fontSize: 7.sp,
@@ -250,20 +750,56 @@ class NavBar extends StatelessWidget {
                             _bottomController.changeTabIndex(5);
                           },
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(
-                                Icons.border_inner_sharp,
-                                color: _bottomController.tabindex.value == 1
-                                    ? Colors.black
-                                    : Colors.grey.shade600,
-                                size: 20,
+                              Container(
+                                height: 0.3.h,
+                                width: 11.w,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: _bottomController.tabIndex.value == 5
+                                      ? Colors.blue
+                                      : Colors.transparent,
+                                ),
                               ),
-                              Text("ma",
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    FontAwesomeIcons.dashboard,
+                                    color: _bottomController.tabIndex.value == 5
+                                        ? Colors.black
+                                        : Colors.grey.shade600,
+                                    size: 22,
+                                  ),
+                                  1.w.widthBox,
+                                  PopupMenuButton(
+                                    initialValue: 2,
+                                    child: Center(
+                                        child: Icon(
+                                      Icons.arrow_drop_up_outlined,
+                                      size: 12,
+                                      color:
+                                          _bottomController.tabIndex.value == 5
+                                              ? Colors.black
+                                              : Colors.transparent,
+                                    )),
+                                    itemBuilder: (context) {
+                                      return List.generate(5, (index) {
+                                        return PopupMenuItem(
+                                          value: index,
+                                          child: Text('button no $index'),
+                                        );
+                                      });
+                                    },
+                                  ),
+                                ],
+                              ),
+                              Text("dashbord  ",
                                   style: TextStyle(
                                       color:
-                                          _bottomController.tabindex.value == 1
+                                          _bottomController.tabIndex.value == 5
                                               ? Colors.black
                                               : Colors.grey.shade600,
                                       fontSize: 7.sp,
@@ -285,7 +821,7 @@ class NavBar extends StatelessWidget {
         () => SafeArea(
           child: Center(
             child: IndexedStack(
-              index: _bottomController.tabindex.value,
+              index: _bottomController.tabIndex.value,
               children: [
                 HomePage(),
                 //DrawerPracticee(),
@@ -329,6 +865,226 @@ class NavBar extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _showpopup() {
+    Future.delayed(Duration(seconds: 1), () {
+      Timer(Duration(seconds: 5), () {
+        Get.back();
+
+        print(" This line is execute after 2 seconds");
+      });
+      // Container(
+      //   height: 30.h,
+      //   width: 60.w,
+      //   color: Colors.blue,
+      // );
+      Get.defaultDialog(
+          title: "",
+
+          //middleText:
+          content: SizedBox(
+            width: 100.w,
+            height: 40.5.h,
+            child: Stack(
+              clipBehavior: Clip.none,
+              //mainAxisAlignment: MainAxisAlignment.end,
+              //crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Positioned(
+                  left: -12.w,
+                  top: 6.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                    elevation: 2,
+                    child: Container(
+                      height: 4.h,
+                      width: 9.w,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Center(
+                          child: Icon(
+                        Icons.push_pin,
+                        size: 17,
+                      )),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: -12.w,
+                  bottom: -4.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    //shape: BoxShape.circle,
+                    elevation: 0.5,
+                    child: Container(
+                      height: 2.h,
+                      width: 11.w,
+                      decoration: BoxDecoration(
+                        //shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.remove_red_eye_outlined,
+                            size: 17,
+                          ),
+                          Text(
+                            '1.70k',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 7.sp,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 0.w,
+                  bottom: -4.h,
+                  child: Container(
+                    height: 2.h,
+                    //width: 11.w,
+                    decoration: BoxDecoration(
+                      //shape: BoxShape.circle,
+                      color: Colors.white10,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.stop_circle_outlined,
+                          size: 14,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          'Similar',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 7.sp,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: -11.w,
+                  top: 6.h,
+                  child: PhysicalModel(
+                    color: Colors.transparent,
+                    shape: BoxShape.circle,
+                    elevation: 2,
+                    child: Container(
+                      height: 5.h,
+                      width: 9.w,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white10,
+                      ),
+                      child: Center(
+                          child: InkWell(
+                        onTap: () {
+                          // _showDialog();
+                        },
+                        child: Icon(
+                          Icons.volume_down,
+                          size: 17,
+                        ),
+                      )),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 9.h,
+                  //right:0,
+                  //left: 0,
+                  right: -11.w,
+                  child: Column(
+                    children: [
+                      12.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.star_border,
+                        color: Colors.white,
+                        size: 24,
+                      )),
+                      Text(
+                        '110+',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.mic_none_rounded,
+                        color: Colors.white,
+                        size: 24,
+                      )),
+                      Text(
+                        '200+',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        FontAwesomeIcons.share,
+                        color: Colors.white,
+                        size: 17,
+                      )),
+                      Text(
+                        '20',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      1.3.h.heightBox,
+                      Center(
+                          child: Icon(
+                        Icons.card_giftcard_outlined,
+                        color: Colors.white,
+                        size: 22,
+                      )),
+                      Text(
+                        '12',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 7.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      0.7.h.heightBox,
+                    ],
+                  ).pSymmetric(h: 0.0.w),
+                ),
+              ],
+            ),
+          ),
+          backgroundColor: Colors.transparent,
+          titleStyle: TextStyle(color: Colors.white),
+          middleTextStyle: TextStyle(color: Colors.white),
+          radius: 0);
+    });
   }
 }
 
@@ -596,3 +1352,6 @@ class NavBar extends StatelessWidget {
 //     );
 //   }
 // }
+
+///todo............
+///

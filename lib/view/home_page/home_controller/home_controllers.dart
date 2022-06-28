@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
@@ -41,6 +43,12 @@ class HomeController extends GetxController {
         isLoader.value = false;
       });
     super.onInit();
+
+    //this is hide and show
+
+    Timer(Duration(seconds: 5), () {
+      print('Hello');
+    });
   }
 
   @override
