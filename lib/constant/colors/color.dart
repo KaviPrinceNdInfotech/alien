@@ -11,6 +11,8 @@ const Color backgroundc = Color(0xffF5F5F5);
 
 const Color socialbutton = Color(0xFF1778F2);
 
+const Color chat = Color(0xFF34c578);
+
 //const Color buttonColor= Color.fromRGBO(20, 146, 230, 1);
 
 const Color textColor = Color.fromRGBO(1, 1, 1, 1);
@@ -75,6 +77,12 @@ LinearGradient gradient5 = LinearGradient(
     // Color.fromRGBO(15, 197, 148, 1),
   ],
 );
+
+LinearGradient gradient7 = LinearGradient(
+    colors: [Colors.cyanAccent, Colors.amberAccent],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    tileMode: TileMode.clamp);
 String appName = 'ONE_CODE';
 //String appLogo='lib/assets/logo.png';
 

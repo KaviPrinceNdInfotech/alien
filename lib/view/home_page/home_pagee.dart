@@ -2,6 +2,8 @@ import 'package:alien/constant/app_texts/app_texts.dart';
 import 'package:alien/view/home_page/home_controller/home_controllers.dart';
 import 'package:alien/view/home_page/tabs./trending_tab/trending_view.dart';
 import 'package:alien/view/nav_barrrrrr_practice/nav_bar_practice.dart';
+import 'package:alien/view/show_hide/show_hide_view.dart';
+import 'package:alien/view/widgetss/drower_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,8 +11,6 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 import 'package:velocity_x/velocity_x.dart';
-
-import '../nav_bar/navbar_persistant.dart';
 
 const TextStyle kstyle = TextStyle(fontSize: 10);
 
@@ -21,9 +21,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<ScaffoldState> _key = GlobalKey();
     bool showFab = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
+      key: _key,
       backgroundColor: Colors.white,
+      drawer: MainDrawer(),
       // appBar: AppBar(
       //   elevation: 0.5,
       //   backgroundColor: Colors.white,
@@ -179,17 +182,23 @@ class HomePage extends StatelessWidget {
                         child: Center(
                           child: Align(
                             alignment: Alignment.center,
-                            child: Text(
-                              'User Profile Photo',
-                              style: TextStyle(
-                                fontSize: 5.sp,
-                                color: Colors.white,
+                            child: InkWell(
+                              onTap: () {
+                                _key.currentState!.openDrawer();
+                              },
+                              child: Text(
+                                'User Profile Photo',
+                                style: TextStyle(
+                                  fontSize: 5.sp,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ).onTap(() {
-                        Get.to(() => NavBar());
+                        _key.currentState!.openDrawer();
+                        // Get.to(() => NavBar());
                       }),
                     ],
                   ),
@@ -264,7 +273,9 @@ class HomePage extends StatelessWidget {
                       Icon(
                         Icons.youtube_searched_for_sharp,
                         color: Colors.white,
-                      ),
+                      ).onTap(() {
+                        Get.to(() => ShowHide());
+                      }),
                       1.w.widthBox,
                       Icon(
                         FontAwesomeIcons.redditAlien,

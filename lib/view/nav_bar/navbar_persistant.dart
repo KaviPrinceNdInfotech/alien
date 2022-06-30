@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:alien/view/home_page/chatss/chatview.dart';
 import 'package:alien/view/home_page/home_pagee.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -826,11 +827,7 @@ class NavBar extends StatelessWidget {
                 HomePage(),
                 //DrawerPracticee(),
 //     const Page1(),
-                Container(
-                  height: 100.h,
-                  width: 100.w,
-                  color: Colors.yellow,
-                ),
+                ChhatView(),
 //     //StudioPage(),
 //     //const Page4(),
                 //WishListPage(),
