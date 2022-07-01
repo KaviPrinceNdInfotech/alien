@@ -1,3 +1,4 @@
+import 'package:alien/contact_us/contact_us.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -522,7 +523,7 @@ class MainDrawer extends StatelessWidget {
               onTap: () {
                 print(Get.currentRoute);
                 Get.back();
-                // Get.to(() => ContactUs());
+                Get.to(() => ContactUs());
                 Get.offNamed('/ContactUs');
               },
             ),

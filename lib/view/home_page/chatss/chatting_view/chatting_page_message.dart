@@ -30,7 +30,11 @@ class WhatsAppss extends StatelessWidget {
               height: 7.h,
               width: 7.w,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
+                border: Border.all(color: Colors.lightGreenAccent, width: 2),
+                image: DecorationImage(
+                    image: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOXGwb9n6rcdsvkm9mg0swqhOOhmg1_TyjMg&usqp=CAU'),
+                    fit: BoxFit.fitWidth),
                 shape: BoxShape.circle,
               ),
             ),
@@ -66,7 +70,7 @@ class WhatsAppss extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                height: 87.h,
+                height: 80.h,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
@@ -235,70 +239,71 @@ class WhatsAppss extends StatelessWidget {
                 ),
               ),
               //Spacer(),
-              SizedBox(
-                height: 1.h,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Positioned(
-                      bottom: 2,
-                      child: Container(
-                        height: 8.h,
-                        width: 100.w,
-                        decoration: BoxDecoration(
-                            //border: Border.all(color: chat),
-                            //color: Colors.white,
-                            //borderRadius: BorderRadius.circular(20),
-                            ),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 8.h,
-                              width: 85.w,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: TextField(
-                                textAlignVertical: TextAlignVertical.center,
-                                textAlign: TextAlign.left,
-                                //keyboardType: TextInputType.number,
-                                decoration: InputDecoration(
-                                  prefixIcon: SizedBox(
-                                      width: 13.w,
-                                      height: 5.h,
-                                      child:
-                                          Icon(Icons.supervised_user_circle)),
+            ],
+          ),
+          Positioned(
+            bottom: 2,
+            child: Container(
+              height: 8.h,
+              width: 100.w,
+              decoration: BoxDecoration(
+                  //border: Border.all(color: chat),
+                  //color: Colors.white,
+                  //borderRadius: BorderRadius.circular(20),
+                  ),
+              child: Row(
+                children: [
+                  Container(
+                    height: 8.h,
+                    width: 85.w,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
 
-                                  suffixIcon: Icon(
-                                    Icons.attachment,
-                                  ),
-                                  //isDense: true,
+                      border: Border.all(color: chat),
+                      color: Colors.white,
+                      //borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: TextField(
+                        textAlignVertical: TextAlignVertical.center,
+                        textAlign: TextAlign.left,
+                        //keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          disabledBorder: InputBorder.none,
+                          border: InputBorder.none,
+                          prefixIcon: SizedBox(
+                              width: 13.w,
+                              height: 5.h,
+                              child: Icon(Icons.supervised_user_circle)),
 
-                                  hintText: 'Type your message...',
-                                  hintStyle: TextStyle(
-                                    fontSize: 12.sp,
-                                  ),
-                                  // labelText: 'Enter Your Message',
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            2.w.widthBox,
-                            Icon(
-                              Icons.send,
-                            )
-                          ],
+                          suffixIcon: Icon(
+                            Icons.attachment,
+                            color: chat,
+                          ),
+                          //isDense: true,
+
+                          hintText: 'Type your message...',
+                          hintStyle: TextStyle(
+                            fontSize: 12.sp,
+                          ),
+                          // labelText: 'Enter Your Message',
+                          // border: OutlineInputBorder(
+                          //   borderRadius: BorderRadius.circular(20.0),
+                          // ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  2.w.widthBox,
+                  Icon(
+                    Icons.send,
+                    color: chat,
+                  ),
+                ],
               ),
-              0.5.heightBox,
-            ],
+            ),
           ),
+          0.5.heightBox,
         ],
       ),
     );

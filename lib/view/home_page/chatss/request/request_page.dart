@@ -94,11 +94,11 @@ class ReqestPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Follow",
+                                  "Accept",
                                   style: TextStyle(
                                     color: Colors.green.shade900,
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 8.sp,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 9.sp,
                                   ),
                                 ),
                                 Icon(

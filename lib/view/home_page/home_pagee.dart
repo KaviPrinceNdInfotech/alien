@@ -1,6 +1,5 @@
 import 'package:alien/constant/app_texts/app_texts.dart';
 import 'package:alien/view/home_page/home_controller/home_controllers.dart';
-import 'package:alien/view/home_page/tabs./trending_tab/trending_view.dart';
 import 'package:alien/view/nav_barrrrrr_practice/nav_bar_practice.dart';
 import 'package:alien/view/show_hide/show_hide_view.dart';
 import 'package:alien/view/widgetss/drower_widgets.dart';
@@ -11,6 +10,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'tabs/trending_tab/trending_view.dart';
 
 const TextStyle kstyle = TextStyle(fontSize: 10);
 
